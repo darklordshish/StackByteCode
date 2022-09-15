@@ -1,0 +1,72 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           StackByteCode
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/darklordshish/StackByteCode#readme>
+homepage:       https://github.com/darklordshish/StackByteCode#readme
+bug-reports:    https://github.com/darklordshish/StackByteCode/issues
+author:         Semion
+maintainer:     darkshish@gmail.com
+copyright:      Copyright (c) 2022 Semion Shishkin
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/darklordshish/StackByteCode
+
+library
+  exposed-modules:
+      ByteCode
+      ByteCode.Run
+      ByteCode.Types
+  other-modules:
+      Paths_StackByteCode
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , hspec
+    , mtl
+  default-language: Haskell2010
+
+executable StackByteCode-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_StackByteCode
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , StackByteCode
+    , base >=4.7 && <5
+    , hspec
+    , mtl
+  default-language: Haskell2010
+
+test-suite StackByteCode-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_StackByteCode
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , StackByteCode
+    , base >=4.7 && <5
+    , hspec
+    , mtl
+  default-language: Haskell2010
